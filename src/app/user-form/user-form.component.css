@@ -1,0 +1,116 @@
+/* Ensure the form container takes full width */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Style the nominee container */
+.nominee-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Style buttons to appear on the same line */
+.nominee-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Add margin between buttons */
+.nominee-actions button {
+  margin-left: 8px;
+}
+
+/* Style the Add Nominee button */
+.add-nominee-button {
+  margin-top: 16px; /* Add space above the Add Nominee button */
+}
+
+.family-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Actions for family section (Edit/Delete buttons) */
+.family-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Add margin between buttons in family actions */
+.family-actions button {
+  margin-left: 8px;
+}
+
+/* Style the Add Family Member button */
+.add-family-button {
+  margin-top: 16px; /* Add space above the Add Family Member button */
+}
+
+table {
+  width: 100%;
+  table-layout: auto; /* Allows the table to adjust based on content */
+}
+
+th.mat-header-cell, td.mat-cell {
+  padding: 12px;
+  text-align: left;
+  white-space: normal; /* Allows text to wrap */
+  word-wrap: break-word; /* Breaks long words to fit within the cell */
+  max-width: 100%; /* Ensures the cell can expand to fit content */
+}
+
+button {
+  margin: 0 4px;
+  padding: 6px 12px; 
+}
+
+/* Ensure the upload container aligns properly */
+.upload-container {
+  display: flex;
+  align-items: center;
+}
+
+.upload-container label {
+  margin-right: 10px; /* Adjust the spacing as needed */
+}
+.form-group {
+  margin-bottom: 16px;
+}
+
+.file-upload {
+  margin-top: 16px;
+}
+
+.file-upload label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.file-upload input[type="file"] {
+  display: block;
+}
+
+.nominee-actions, .family-actions {
+  margin-top: 16px;
+}
+
+.nominee-actions button, .family-actions button {
+  margin-right: 8px;
+}
+
+.add-nominee-button, .add-family-button {
+  margin-top: 16px;
+}
+
+

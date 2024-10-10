@@ -1,0 +1,256 @@
+<div class="container">
+    <form [formGroup]="compositeForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <h3>Personal Details</h3>
+      
+      <!-- Form Fields -->
+      <mat-form-field appearance="fill">
+        <mat-label>Name as per Aadhar</mat-label>
+        <input matInput formControlName="name" placeholder="Name as per Aadhar">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Father's Name as per Aadhar</mat-label>
+        <input matInput formControlName="fatherName" placeholder="Father's Name as per Aadhar">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth as per Aadhar</mat-label>
+        <input matInput type="date" formControlName="dob" placeholder="Date of Birth as per Aadhar">
+      </mat-form-field>
+  
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Aadhar No</mat-label>
+        <input matInput formControlName="aadharNo" placeholder="Aadhar No">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Working & Aadhar Linked Mobile No</mat-label>
+        <input matInput formControlName="mobileNo" placeholder="Mobile No">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Marital Status</mat-label>
+        <mat-select formControlName="maritalStatus">
+          <mat-option value="UnMarried">UnMarried</mat-option>
+          <mat-option value="Married">Married</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>PAN</mat-label>
+        <input matInput formControlName="pan" placeholder="PAN">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Present Address</mat-label>
+        <textarea matInput formControlName="presentAddress" placeholder="Present Address"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Permanent Address</mat-label>
+        <textarea matInput formControlName="permanentAddress" placeholder="Permanent Address"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Appointment</mat-label>
+        <input matInput type="date" formControlName="appointmentDate" placeholder="Date of Appointment">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Dispensary Preferences</mat-label>
+        <input matInput formControlName="dispensaryPreferences" placeholder="Dispensary Preferences">
+      </mat-form-field>
+  
+      <h3>Bank Details</h3>
+      <mat-form-field appearance="fill">
+        <mat-label>Account Number</mat-label>
+        <input matInput formControlName="accountNo" placeholder="Account Number">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Bank Name</mat-label>
+        <input matInput formControlName="bankName" placeholder="Bank Name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Branch Name</mat-label>
+        <input matInput formControlName="branchName" placeholder="Branch Name">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>IFSC Code</mat-label>
+        <input matInput formControlName="ifscCode" placeholder="IFSC Code">
+      </mat-form-field>
+  
+      <!-- <h3>Nominee Details</h3>
+      <div formArrayName="nominees">
+        <div *ngFor="let nominee of nominees.controls; let i = index" [formGroupName]="i" class="nominee-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Nominee Name</mat-label>
+            <input matInput formControlName="nomineeName" placeholder="Nominee Name">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Nominee Relation</mat-label>
+            <input matInput formControlName="nomineeRelation" placeholder="Nominee Relation">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Nominee Address</mat-label>
+            <input matInput formControlName="nomineeAddress" placeholder="Nominee Address">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Nominee Aadhar No</mat-label>
+            <input matInput formControlName="nomineeAadharNo" placeholder="Nominee Aadhar No">
+          </mat-form-field>
+      
+          <div class="nominee-actions">
+            <button mat-raised-button color="primary" (click)="onEditNominee(i, $event)">Edit</button>
+            <button mat-raised-button color="warn" (click)="deleteNominee(i)">Delete</button>
+            <button mat-raised-button color="accent" (click)="onSaveNominee(i, $event)">Save</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="upload-container">
+        <label for="nomineeFile">Upload Nominee File:</label>
+        <input type="file" id="nomineeFile" (change)="onNomineeFileChange($event)" />
+      </div>
+      <p *ngIf="nomineeFile">Selected Nominee File: {{ nomineeFile }}</p>
+  
+      <button mat-raised-button color="accent" class="add-nominee-button" (click)="addNominee()">Add Nominee</button>
+      
+      <h3>Family Details</h3>
+      <div formArrayName="familyDetails">
+        <div *ngFor="let family of familyDetails.controls; let i = index" [formGroupName]="i" class="family-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Family Name</mat-label>
+            <input matInput formControlName="familyName" placeholder="Family Name">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Family Relation</mat-label>
+            <input matInput formControlName="familyRelation" placeholder="Family Relation">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>DOB</mat-label>
+            <input matInput type="date" formControlName="familyDob" placeholder="Date of Birth">
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Family Aadhar No</mat-label>
+            <input matInput formControlName="familyAadharNo" placeholder="Family Aadhar No">
+          </mat-form-field>
+      
+          <div class="family-actions">
+            <button mat-raised-button color="primary" (click)="onEditFamilyDetail(i, $event)">Edit</button>
+            <button mat-raised-button color="warn" (click)="deleteFamilyDetail(i)">Delete</button>
+            <button mat-raised-button color="accent" (click)="onSaveFamilyDetail(i, $event)">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="upload-container">
+        <label for="familyFile">Upload Family File:</label>
+        <input type="file" id="familyFile" (change)="onFamilyFileChange($event)" />
+      </div>
+      <p *ngIf="familyFile">Selected Family File: {{ familyFile }}</p>
+      <button mat-raised-button color="accent" class="add-family-button" (click)="addFamilyDetail()">Add Family Member</button>
+       -->
+     <!-- file-upload.component.html -->
+
+    <!-- file-upload.component.html -->
+
+    <h3>Nominee Details</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Relationship</th>
+          <th>Address (if Different)</th>
+          <th>Aadhar No</th>
+          <th>Upload Nominee File</th>
+         
+        </tr>
+      </thead>
+      <tbody formArrayName="nominees">
+        <tr *ngFor="let nominee of nominees.controls; let i = index" [formGroupName]="i">
+          <td><input formControlName="nomineeName" /></td>
+          <td><input formControlName="nomineeRelation" /></td>
+          <td><input formControlName="nomineeAddress" /></td>
+          <td><input formControlName="nomineeAadharNo" /></td>
+          <td><input type="file" (change)="onNomineeFileChange($event)" /></td>
+          <td>
+            <button type="button" (click)="onEditNominee(i,$event)">Edit</button></td>
+           <td> <button type="button" (click)="deleteNominee(i)">Delete</button></td>
+           <td> <button type="button" (click)="onSaveNominee(i,$event)">Save</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" (click)="addNominee()">Add Nominee</button>
+    
+
+
+    <h3>Family Details</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Relationship</th>
+          <th>Date of Birth</th>
+          <th>Aadhar No</th>
+          <th>Upload Family File</th>
+          
+        </tr>
+      </thead>
+      <tbody formArrayName="familyDetails">
+        <tr *ngFor="let family of familyDetails.controls; let i = index" [formGroupName]="i">
+          <td><input formControlName="familyName" /></td>
+          <td><input formControlName="familyRelation" /></td>
+          <td><input formControlName="familyDob" type="date" /></td>
+          <td><input formControlName="familyAadharNo" /></td>
+          <td><input type="file" (change)="onFamilyFileChange($event)" /></td>
+          
+          <td>  <button type="button" (click)="onEditFamilyDetail(i,$event)">Edit</button></td>
+          <td> <button type="button" (click)="deleteFamilyDetail(i)">Delete</button></td>
+          <td> <button type="button" (click)="onSaveFamilyDetail(i,$event)">Save</button></td>
+
+         
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" (click)="addFamilyDetail()">Add Family Detail</button>
+   
+
+  
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Existing UAN</mat-label>
+        <input matInput formControlName="existingUAN" placeholder="Existing UAN">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Existing IPN</mat-label>
+        <input matInput formControlName="existingIPN" placeholder="Existing IPN">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Submit</button> 
+    </form>
+    
+   <div *ngIf="submissionMessage" class="submission-message"></div>
+      {{ submissionMessage }}
+  </div>
+  
